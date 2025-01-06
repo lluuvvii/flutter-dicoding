@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -12,13 +10,29 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Hello, world!'),
-        ),
+      home: const Scaffold(
         body: Center(
-          child: Text('Hello, world!'),
+          child: Heading( // mengubah widget Text
+            text:"Hello world!",
+          ),
         ),
+      ),
+    );
+  }
+}
+
+class Heading extends StatelessWidget {
+  final String text;
+
+  const Heading({Key? key, required this.text}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context){
+    return Text(
+      text,
+      style: const TextStyle(
+        fontSize: 24.0,
+        fontWeight: FontWeight.bold,
       ),
     );
   }
